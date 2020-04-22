@@ -2,13 +2,14 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import Navbar from './components/Navbar';
+import App from './components/App.js';
 import { BrowserRouter as Router } from 'react-router-dom';
 import * as serviceWorker from './serviceWorker';
 
 ReactDOM.render(
   <React.StrictMode>
   	<Router>
-    	<Navbar />
+    	<App />
     </Router>
   </React.StrictMode>,
   document.getElementById('root')
