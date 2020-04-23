@@ -9,5 +9,4 @@ export default () => (
 		<Route exact path="/" component={App}/>
 		<Route path="/register" component={RegisterModal} />
 	</Switch>
-
 )
