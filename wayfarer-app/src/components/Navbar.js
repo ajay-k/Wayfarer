@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link, NavLink } from 'react-router-dom'
 import RegisterModal from './RegisterModal.js'
+import Login from './Login'
 
 
 
@@ -8,19 +9,31 @@ import RegisterModal from './RegisterModal.js'
 class Navbar extends Component {
   
  state = {
-    open: false,
+    Modelopen1: false,
+    Modelopen2: false,
   };
 
-  onOpenModal = () => {
-    this.setState({ open: true });
+  onOpenModal1 = () => {
+    this.setState({ Modelopen1: true });
   };
 
-  onCloseModal = () => {
-    this.setState({ open: false });
+  onCloseModal1 = () => {
+    this.setState({ Modelopen1: false });
   };
+
+
+  onOpenModal2 = () => {
+    this.setState({ Modelopen2: true });
+  };
+
+  onCloseModal2 = () => {
+    this.setState({ Modelopen2: false });
+  };
+
 
   render() {
     const { open } = this.state;
+
 
 
     return (
@@ -40,11 +53,12 @@ class Navbar extends Component {
                 <NavLink className="nav-link" to="/profile">Profile</NavLink>
               </li>
               <li className="nav-item">
-                <NavLink className="nav-link" to="/register" onClick={this.onOpenModal}>Register</NavLink>
-                <RegisterModal appear={this.state.open} close={this.onCloseModal}/>
+                <NavLink className="nav-link" to="/register" onClick={this.onOpenModal1}>Register</NavLink>
+                <RegisterModal appear={this.state.Modelopen1} close={this.onCloseModal1}/>
               </li>
               <li className="nav-item">
-                <NavLink className="nav-link" to="/login">Login</NavLink>
+                <NavLink className="nav-link" to="/login" onClick={this.onOpenModal2}>Login</NavLink>
+                <Login appear={this.state.Modelopen2} close={this.onCloseModal2}/>
               </li>
             </ul>
           </div>
