@@ -7,8 +7,9 @@ function App() {
 	return(
 		<div>
 		<Navbar />
-		<RegisterModal />
-		{ Routes }
+		{/* <RegisterModal /> */}
+		{/* { Routes } */}
+		<Routes/>
 		</div>
 	);
 }
