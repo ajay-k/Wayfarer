@@ -4,17 +4,15 @@ import Modal from "react-bootstrap/Modal";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 class RegisterModal extends Component {
-	state = {
-		open: false
-	}
 
   render() {
   	
     return (
-    	<Modal show={false}>
+    	<Modal show={this.props.appear}>
 	      <Modal.Header>Hi</Modal.Header>
 	      <Modal.Body>asdfasdf</Modal.Body>
-	      <Modal.Footer>This is the footer</Modal.Footer>
+	      <Modal.Footer>
+			  This is the footer</Modal.Footer>
     	</Modal>
   );
   }
