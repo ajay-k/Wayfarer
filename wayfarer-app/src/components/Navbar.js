@@ -41,7 +41,7 @@ class Navbar extends Component {
               </li>
               <li className="nav-item">
                 <NavLink className="nav-link" to="/register" onClick={this.onOpenModal}>Register</NavLink>
-                <RegisterModal appear={this.state.open}/>
+                <RegisterModal appear={this.state.open} close={this.onCloseModal}/>
               </li>
               <li className="nav-item">
                 <NavLink className="nav-link" to="/login">Login</NavLink>
