@@ -3,6 +3,8 @@ import { Link, NavLink } from 'react-router-dom'
 import Modal from "react-bootstrap/Modal";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Button from 'react-bootstrap/Button';
+import axios from 'axios'
+import UserModel from '../models/user'
 
 class RegisterModal extends Component {
 	state = {
@@ -21,6 +23,18 @@ class RegisterModal extends Component {
 
    handleSubmit = (event) => {
 	   event.preventDefault()
+	   UserModel.create(this.state)
+	   .then(res => {
+		   this.setState({
+			   name: '',
+			   email: '',
+			   password: '',
+			   password2: ''
+		   })
+		   alert('Succesfully registered')
+		
+	   })
+	   .catch(err => console.log(err))
 
    }
 

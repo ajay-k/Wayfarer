@@ -1,27 +1,34 @@
 const express = require('express')
 const bodyParser = require('body-parser')
-// const session = require('express-session')
-// const MongoStore = require('connect-mongo')(session)
-// const morgan = require('morgan')
-// const cors = require('cors')
+const session = require('express-session')
+const MongoStore = require('connect-mongo')(session)
+const morgan = require('morgan')
+const cors = require('cors')
 const app = express()
 require('dotenv').config()
 
 const db = require('./models')
  
-// const routes = require('./routes')
+const routes = require('./routes')
 
 
 // Middleware ----------------------------- //
 
 
 
-// Handle Cors
-
-
 
 // Handle Cors
+const corsOptions = {
+    origin: [`http://localhost:3000`],
+    credentials: true, // allows the session cookie to be sent back and forth from server to client
+    optionsSuccessStatus: 200 // some legacy browsers choke on status 204
+}
 
+app.use(cors(corsOptions))
+
+
+// Logging with Morgan
+app.use(morgan('tiny'))
 
 
 // BodyParser
@@ -30,6 +37,16 @@ app.use(bodyParser.json())
 
 
 // Express Session - Authentication
+app.use(session({
+    // Store the session in our DB
+    store: new MongoStore({ url: process.env.MONGO_URI }),
+    secret: process.env.SESSION_SECRET,
+    resave: false,
+    saveUninitialized: false, // Only create a session if a property has been added to the session
+    cookie: {
+        maxAge: 1000 * 60 * 60 * 24 * 7 // cookie will expire in 1 week
+    }
+}))
 
 
 
@@ -39,34 +56,7 @@ app.get('/', (req, res) => {
 })
 
 
-app.post('/api/v1/auth/register', (req, res) => {
-    // if (!req.body.name || !req.body.email || !req.body.password){
-    //     return res.status(400).json({
-    //         status: 400,
-    //         message: "Please enter a name, email, and password"
-    //     })
-    // }
-    // db.User.findOne({ email: req.body.email }, (err, foundUser) => {
-    //     // error checking for a problem with the server or DB
-    //     if (err) return res.status(500).json({
-    //         status: 500,
-    //         message: 'Something went wrong. Please try again.'
-    //     })
-    //     if (foundUser) return res.status(400).json({
-    //         status: 400,
-    //         message: "A user with that email address already exists!"
-    //     })
-    const newUser = {
-        name: req.body.name,
-        email: req.body.email,
-        password: req.body.password
-    }
-    db.User.create(newUser, (err, savedUser) => {
-        if (err) return res.status(500).json({ status: 500, message: err })
-        return res.status(200).json({ status: 200, message: "User registered!" })
-    })
-})
-
+app.use('/api/v1/auth', routes.auth)
 
 // Server --------------------------------- //
 app.listen(3001, () => {
