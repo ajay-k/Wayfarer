@@ -36,3 +36,12 @@
     transform: rotate(360deg);
   }
 }
+
+
+.postContainer {
+  border: 2px solid red;
+}
+
+.userContainer {
+  border: 2px solid greenyellow;
+}
