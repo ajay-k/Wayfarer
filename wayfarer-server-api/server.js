@@ -58,6 +58,7 @@ app.get('/', (req, res) => {
 
 app.use('/api/v1/auth', routes.auth)
 
+
 // Server --------------------------------- //
 app.listen(3001, () => {
     return console.log(`Server connected at http://localhost:3001`)

@@ -15,4 +15,9 @@ export default class UserModel {
         } )
         return request
     }
+
+    static logout() {
+        let request = axios.delete(`${REACT_APP_API_URL}/auth/logout`, {withCredentials: true})
+        return request
+    }
 }

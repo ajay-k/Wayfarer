@@ -50,7 +50,7 @@ const register = (req, res) => {
                 })
             })
         })
-    })
+    }) 
 }
 // POST - login user
 const login = (req, res) => {
@@ -73,12 +73,31 @@ const login = (req, res) => {
             } else {
                 return res.status(400).json({ status: 400, message: 'Email or password is incorrect' });
             }
-        })
-    })
-}
+        });
+    });
+};
+
+// POST Logout - Destroy Session
+  const logout = (req, res) => {
+      if (!req.session.currentUser) return res.status(401).json({ status: 401, message: 'Unauthorized' });
+      req.session.destroy((err) => {
+          if (err) return res.status(500).json({ status: 500, message: 'Something went wrong. Please try again' });
+          res.sendStatus(200);
+      });
+  };
+
+  const verify = (req, res) => {
+      if (!req.session.currentUser) return res.status(401).json({ status: 401, message: 'Unauthorized' });
+      res.status(200).json({
+          status: 200,
+          message: `Current User verified. User ID: ${req.session.currentUser.id}`
+      });
+  };
 
 
 module.exports = {
     register,
     login,
+    verify,
+    logout
 }
