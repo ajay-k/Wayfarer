@@ -4,6 +4,7 @@ import App from '../components/App';
 import RegisterModal from '../components/RegisterModal.js';
 import Home from '../components/Home'
 import Login from '../components/Login'
+import Profile from '../components/Profile'
 
 
 export default (props) => (
@@ -17,5 +18,6 @@ export default (props) => (
 					setCurrentUser={props.setCurrentUser}
 					/> 
 		}}/>
+		<Route path="/profile" component={Profile}/>
 	</Switch>
 )
