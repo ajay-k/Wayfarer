@@ -56,7 +56,7 @@ class Navbar extends Component {
                    <NavLink className="nav-link" to="/profile">Profile</NavLink>        
                 </li>
                   <li className="nav-item">
-                    <NavLink className="nav-link" href="/logout" onClick={this.props.logout}>Logout</NavLink>
+                    <NavLink className="nav-link" to="/logout" onClick={this.props.logout}>Logout</NavLink>
                   </li>
                </>
               :
@@ -67,7 +67,7 @@ class Navbar extends Component {
                 </li>
                 <li className="nav-item">
                   <NavLink className="nav-link" to="/login" onClick={this.onOpenModal2}>Login</NavLink>
-                  <Login appear={this.state.Modelopen2} close={this.onCloseModal2}/>
+                  {/* <Login appear={this.state.Modelopen2} close={this.onCloseModal2}/> */}
                 </li>
               </>
             }
