@@ -49,17 +49,28 @@ class Navbar extends Component {
               <li className="nav-item">
                 <NavLink className="nav-link" exact to="/">Home</NavLink>
               </li>
-              <li className="nav-item">
-                <NavLink className="nav-link" to="/profile">Profile</NavLink>
-              </li>
-              <li className="nav-item">
-                <NavLink className="nav-link" to="/register" onClick={this.onOpenModal1}>Register</NavLink>
-                <RegisterModal appear={this.state.Modelopen1} close={this.onCloseModal1}/>
-              </li>
-              <li className="nav-item">
-                <NavLink className="nav-link" to="/login" onClick={this.onOpenModal2}>Login</NavLink>
-                <Login appear={this.state.Modelopen2} close={this.onCloseModal2}/>
-              </li>
+              { this.props.currentUser ? 
+               <>
+
+                 <li className="nav-item">
+                   <NavLink className="nav-link" to="/profile">Profile</NavLink>        
+                </li>
+                  <li className="nav-item">
+                    <NavLink className="nav-link" href="/logout" onClick={this.props.logout}>Logout</NavLink>
+                  </li>
+               </>
+              :
+              <>
+                <li className="nav-item">
+                  <NavLink className="nav-link" to="/register" onClick={this.onOpenModal1}>Register</NavLink>
+                  <RegisterModal appear={this.state.Modelopen1} close={this.onCloseModal1}/>
+                </li>
+                <li className="nav-item">
+                  <NavLink className="nav-link" to="/login" onClick={this.onOpenModal2}>Login</NavLink>
+                  <Login appear={this.state.Modelopen2} close={this.onCloseModal2}/>
+                </li>
+              </>
+            }
             </ul>
           </div>
         </div>

@@ -8,4 +8,11 @@ export default class UserModel {
         let request = axios.post(`${REACT_APP_API_URL}/auth/register`, data)
         return request
     }
+    static login(credentials){
+        console.log(credentials)
+        let request = axios.post(`${REACT_APP_API_URL}/auth/login`, credentials, {
+            withCredentials: true,
+        } )
+        return request
+    }
 }
