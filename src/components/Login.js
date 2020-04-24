@@ -21,8 +21,10 @@ class Login extends Component {
         event.preventDefault()
         UserModel.login(this.state)
           .then((res) => {
+              console.log(res)
+              console.log(res.data.data)
               this.props.setCurrentUser(res.data.data)
-            //   this.props.history.push('/profile')
+              this.props.history.push('/')
           })
           .catch((err) => console.log(err))
 

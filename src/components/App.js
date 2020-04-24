@@ -30,6 +30,9 @@ class App extends Component {
 		UserModel.logout()
 		  .then(res => {
 			  console.log(res)
+			  console.log('----------------- Check')
+			  console.log(this.state.currentUser)
+
 			  this.setState({currentUser: null})
 			  this.props.history.push('/login')
 		  })
@@ -40,7 +43,8 @@ class App extends Component {
 	render() {
 		return (
 			<>
-				<Navbar currentUser={this.setCurrentUser} 
+				<Navbar currentUser={this.state.currentUser} 
+				setCurrentUser={this.setCurrentUser}
 				logout={this.logout}
 				/>
 				{/* TODO LOG OUT */}
