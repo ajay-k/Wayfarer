@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Modal from "react-bootstrap/Modal";
 import Button from 'react-bootstrap/Button';
 import "bootstrap/dist/css/bootstrap.min.css";
+import UserModel from '../models/user'
 
 class Login extends Component {
     
@@ -9,6 +10,24 @@ class Login extends Component {
         email: '',
         password: ''
     }
+
+    handleChange = (event) => {
+        this.setState({
+            [event.target.name]: event.target.value,
+        })
+    }
+
+    handleSubmit = (event) => {
+        event.preventDefault()
+        UserModel.login(this.state)
+          .then((res) => {
+              this.props.setCurrentUser(res.data.data)
+            //   this.props.history.push('/profile')
+          })
+          .catch((err) => console.log(err))
+
+    }
+
 
 
     render() {

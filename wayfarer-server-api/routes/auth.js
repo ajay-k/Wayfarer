@@ -5,5 +5,6 @@ const ctrl = require('../controllers')
 
 // PATH = /api/v1/auth
 router.post('/register', ctrl.auth.register)
+router.post('/login', ctrl.auth.login )
 
 module.exports = router
