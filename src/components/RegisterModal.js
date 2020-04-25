@@ -8,8 +8,7 @@ import UserModel from '../models/user'
 
 class RegisterModal extends Component {
 	state = {
-		name: '',
-		email: '',
+		username: '',
 		password: '',
 		password2: ''
 	}
@@ -26,8 +25,7 @@ class RegisterModal extends Component {
 	   UserModel.create(this.state)
 	   .then(res => {
 		   this.setState({
-			   name: '',
-			   email: '',
+			   username: '',
 			   password: '',
 			   password2: ''
 		   })
@@ -50,19 +48,15 @@ class RegisterModal extends Component {
 							<h4 className="mb-3">Register</h4>
 							<form onSubmit={this.handleSubmit}>
 								<div className="form-group">
-									<label htmlFor="name">Name</label>
+									<label htmlFor="name">Username</label>
 									<input
 										onChange={this.handleChange}
 										className="form-control form-control-lg"
 										type="text"
-										id="name"
-										name="name"
-										value={this.state.name}
+										id="username"
+										name="username"
+										value={this.state.username}
 									/>
-								</div>
-								<div className="form-group">
-									<label htmlFor="name">Email</label>
-									<input onChange={this.handleChange} className="form-control form-control-lg" type="email" id="email" name="email" value={this.state.email} />
 								</div>
 								<div className="form-group">
 									<label htmlFor="name">Password</label>
