@@ -1,51 +1,58 @@
-function ControlledCarousel() {
-  const [index, setIndex] = useState(0);
+import React from 'react';
+import Home from '/Home'
+import Carousel from 'react-bootstrap/Carousel'
 
-  const handleSelect = (selectedIndex, e) => {
-    setIndex(selectedIndex);
-  };
+class Carousel extends React.Component {
 
-  return (
-    <Carousel activeIndex={index} onSelect={handleSelect}>
-      <Carousel.Item>
-        <img
-          className="d-block w-100"
-          src="/tahoe.jpg"
-          alt="First slide"
-        />
-        <Carousel.Caption>
-          <h3>First slide label</h3>
-          <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
-        </Carousel.Caption>
-      </Carousel.Item>
-      <Carousel.Item>
-        <img
-          className="d-block w-100"
-          src="colorado.jpg"
-          alt="Second slide"
-        />
+   constructor (props) {
+    super(props);
 
-        <Carousel.Caption>
-          <h3>Second slide label</h3>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-        </Carousel.Caption>
-      </Carousel.Item>
-      <Carousel.Item>
-        <img
-          className="d-block w-100"
-          src="../san-francisco.jpg"
-          alt="Third slide"
-        />
+    this.state = {
+      currentImageIndex: 0
+    };
 
-        <Carousel.Caption>
-          <h3>Third slide label</h3>
-          <p>
-            Praesent commodo cursus magna, vel scelerisque nisl consectetur.
-          </p>
-        </Carousel.Caption>
-      </Carousel.Item>
-    </Carousel>
-  );
+    this.nextSlide = this.nextSlide.bind(this);
+    this.previousSlide = this.previousSlide.bind(this);
+  }
+
+
+  previousSlide () {
+    const lastIndex = imgUrls.length - 1;
+    const { currentImageIndex } = this.state;
+    const shouldResetIndex = currentImageIndex === 0;
+    const index =  shouldResetIndex ? lastIndex : currentImageIndex - 1;
+
+    this.setState({
+      currentImageIndex: index
+    });
+  }
+
+  nextSlide () {
+    const lastIndex = imgUrls.length - 1;
+    const { currentImageIndex } = this.state;
+    const shouldResetIndex = currentImageIndex === lastIndex;
+    const index =  shouldResetIndex ? 0 : currentImageIndex + 1;
+
+    this.setState({
+      currentImageIndex: index
+    });
+  }
+
+  render () {
+    return (
+      <div className="carousel">
+        <Arrow
+          direction="left"
+          clickFunction={ this.previousSlide }
+          glyph="&#9664;" />
+
+        <ImageSlide url={ imgUrl } />
+
+        <Arrow
+          direction="right"
+          clickFunction={ this.nextSlide }
+          glyph="&#9654;" />
+      </div>
+    );
+  }
 }
-
-render(<ControlledCarousel />);

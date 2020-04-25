@@ -1,10 +1,10 @@
 import React from 'react';
-import Carousel from 'react-bootstrap/Carousel'
+// import Carousel from './Carousel'
+// import Carousel from 'react-bootstrap/Carousel'
 
 const Home = () => {
     return (
-  		<>
-     	<Carousel />
+    	<>
 			<section>
 				<h2>Wayfarer is...</h2>
 
