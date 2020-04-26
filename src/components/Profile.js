@@ -12,21 +12,24 @@ class Profile extends Component {
        username: '',
        name: '',
        city: '',
-       createdAt: ''
+       createdAt: '',
+       posts: [],
    }
 
    componentDidMount() {
     ProfileModel.view(this.props.currentUser)
           .then((res) => {
               console.log("Got the id")
-              console.log(res.data)
+              console.log(res.data.posts[0].title)
 
               this.setState({
                 username: res.data.username,
                 name: res.data.name,
                 createdAt: res.data.createdAt,
                 city: res.data.city,
+                posts: res.data.posts
                })
+               console.log(this.state.posts)
               // console.log(res)
               // console.log(res.data.data)
               // this.props.setCurrentUser(res.data.data)
@@ -64,12 +67,15 @@ class Profile extends Component {
    
 
     render() {
+        let postArray = this.state.posts
         const isName = this.state.name;
         const isCity = this.state.city;
+        console.log(this.state.posts)
 
         return (
-            
+        
             <div className='profileContainer col-md-12'>
+                
                 <div className="row">
                     <div className='userContainer col-md-4'>
                     <button type="button" class="btn btn-info btn-sm" onClick={this.handleInfo}>Get Info</button>
@@ -93,6 +99,10 @@ class Profile extends Component {
                     <div className='postContainer col-md-8'>
                         <div>
                             <p>Post Info</p>
+                            <p>Post1: {this.state.posts[0] ?
+                                this.state.posts[1].content: null}
+                                 </p>
+        
                         </div>
                     </div>
                 </div>
