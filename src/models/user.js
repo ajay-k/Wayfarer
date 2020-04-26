@@ -9,6 +9,7 @@ export default class UserModel {
         return request
     }
     static login(credentials){
+        console.log("credentials")
         console.log(credentials)
         let request = axios.post(`${REACT_APP_API_URL}/auth/login`, credentials, {
             withCredentials: true,

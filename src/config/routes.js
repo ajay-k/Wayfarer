@@ -18,6 +18,13 @@ export default (props) => (
 					setCurrentUser={props.setCurrentUser}
 					/> 
 		}}/>
-		<Route path="/profile" component={Profile}/>
+		<Route path="/profile" render={ (routeProps) => {
+		  return <Profile 
+					{ ...routeProps}
+					currentUser={props.currentUser}
+					setCurrentUser={props.setCurrentUser}
+					/> 
+		}}/>
+
 	</Switch>
 )
