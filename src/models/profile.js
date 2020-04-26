@@ -9,4 +9,11 @@ export default class ProfileModel {
         let request = axios.get(`${REACT_APP_API_URL}/user/view/${id}`)
         return request
     }
+
+    static update(id, data){
+    	console.log("Update ID: ")
+    	console.log(id)
+    	let request = axios.put(`${REACT_APP_API_URL}/user/update/${id}`, data)
+    	return request
+    }
 }

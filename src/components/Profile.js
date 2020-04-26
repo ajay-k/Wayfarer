@@ -12,21 +12,48 @@ class Profile extends Component {
        username: '',
        name: '',
        city: '',
-       joinDate: ''
+       createdAt: ''
    }
-    
-  handleInfo = (event) => {
-      event.preventDefault()
-      // alert(this.props.currentUser)
-      ProfileModel.view(this.props.currentUser)
+
+   componentDidMount() {
+    ProfileModel.view(this.props.currentUser)
           .then((res) => {
               console.log("Got the id")
               console.log(res.data)
 
               this.setState({
                 username: res.data.username,
-                joinDate: res.data.createdAt,
+                name: res.data.name,
+                createdAt: res.data.createdAt,
+                city: res.data.city,
                })
+              // console.log(res)
+              // console.log(res.data.data)
+              // this.props.setCurrentUser(res.data.data)
+              // this.props.history.push('/profile')
+          })
+          .catch((err) => console.log(err))
+   }
+
+  handleChange = (event) => {
+        this.setState({
+            [event.target.name]: event.target.value,
+        })
+    }
+    
+  handleSubmit = (event) => {
+      event.preventDefault()
+      // alert(this.props.currentUser)
+      ProfileModel.update(this.props.currentUser, this.state)
+          .then((res) => {
+              console.log("Updated: Got the id")
+              console.log(res.data)
+
+              // this.setState({
+              //   username: res.data.username,
+              //   joinDate: res.data.createdAt,
+              //   name: res.data.name,
+              //  })
               // console.log(res)
               // console.log(res.data.data)
               // this.props.setCurrentUser(res.data.data)
@@ -37,6 +64,9 @@ class Profile extends Component {
    
 
     render() {
+        const isName = this.state.name;
+        const isCity = this.state.city;
+
         return (
             
             <div className='profileContainer col-md-12'>
@@ -45,13 +75,18 @@ class Profile extends Component {
                     <button type="button" class="btn btn-info btn-sm" onClick={this.handleInfo}>Get Info</button>
                     <form onSubmit={this.handleSubmit}>
                        <div> 
-                          <label>Username: </label> <label>{this.state.username}</label><br></br>
-                          <label>Name: Aibek</label><button type="button" class="btn btn-info btn-sm" type="submit" >Edit</button>
+                          <label>Username: {this.state.username}</label><br></br>
+                          <label>Name: {this.state.name}</label>
+                          <div><label>Update Name: </label><input type="text" class="form-control" id="name" name="name" onChange={this.handleChange}  aria-describedby="emailHelp" placeholder="Enter Name"/></div>
+                          
+                          <button type="button" class="btn btn-info btn-sm" type="submit" >Update Name</button>
                           <br></br>
-                          <label>Current City: San-Francisco</label>
-                          <button type="button" class="btn btn-info btn-sm" type="submit">Edit</button>
+                          <label>Current City: {this.state.city}</label>
+                           <div><label>Update City: </label><input type="text" class="form-control" id="city" name="city" onChange={this.handleChange} aria-describedby="emailHelp" placeholder="Enter City"/></div>
+                    
+                          <button type="button" class="btn btn-info btn-sm" type="submit" >Update City</button>
                           <br></br>
-                          <label>Join Date: </label><label>{this.state.joinDate}</label>
+                          <label>Join Date: {this.state.createdAt}</label>
                         </div>
                     </form>
                     </div>
