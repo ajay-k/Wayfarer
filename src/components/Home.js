@@ -5,6 +5,10 @@ import React from 'react';
 const Home = () => {
     return (
     	<>
+    	<div className="hero-image">
+		    <img src="./images/san-francisco.jpg"/>
+			</div>
+
 			<section>
 				<h2>Wayfarer is...</h2>
 
