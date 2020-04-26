@@ -4,6 +4,8 @@ import { withRouter } from 'react-router-dom'
 import Navbar from './Navbar.js';
 import RegisterModal from './RegisterModal.js';
 import UserModel from '../models/user';
+import ProfileModel from '../models/user';
+
 
 
 
