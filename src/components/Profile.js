@@ -3,6 +3,7 @@ import '../App.css'
 import ProfileModel from '../models/profile'
 import { Link, NavLink } from 'react-router-dom'
 import Button from 'react-bootstrap/Button';
+import Post from '../components/Post'
 
 
 
@@ -16,13 +17,14 @@ class Profile extends Component {
        createdAt: '',
        posts: [],
        isLoaded: false,
+       postId: '',
    }
 
    componentDidMount() {
     ProfileModel.view(this.props.currentUser)
           .then((res) => {
               console.log("Got the id")
-              console.log(res.data.posts[0].title)
+              console.log(res.data.posts[0]._id)
 
               this.setState({
                 username: res.data.username,
@@ -30,6 +32,7 @@ class Profile extends Component {
                 createdAt: res.data.createdAt,
                 city: res.data.city,
                 posts: res.data.posts,
+                postId: res.data.posts[0]._id,
                 isLoaded: true,
                })
                console.log(this.state.posts)
@@ -75,6 +78,7 @@ class Profile extends Component {
         const isCity = this.state.city;
         console.log(this.state.posts)
         const {isLoaded} = this.state.isLoaded
+        const statePostId = this.state.postId
 
         return (
         
@@ -107,9 +111,11 @@ class Profile extends Component {
                                <div>
                                   {this.state.posts.map(function(name, index) {
                                       return   <ul>
-                                               <li><NavLink to="/showPost"> {name.title} </NavLink></li>
+                                               <li><NavLink to="/showPost" postId={statePostId}> {name.title} </NavLink></li>
                                               </ul>
                                   })}
+                                
+                                        
                                </div>
                                :
                                <div>DEF</div>

@@ -11,7 +11,8 @@ import ProfileModel from '../models/user';
 
 class App extends Component {
     state = {
-		currentUser: localStorage.getItem('uid')
+		currentUser: localStorage.getItem('uid'),
+		postId: ''
 	}
 
 	setCurrentUser = (userId) => {
