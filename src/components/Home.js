@@ -5,9 +5,9 @@ import React from 'react';
 const Home = () => {
     return (
     	<>
-    	<div className="hero-image">
+    	<div className="home bg">
 		    <img src="./images/san-francisco.jpg"/>
-			</div>
+		</div>
 
 			<section>
 				<h2>Wayfarer is...</h2>

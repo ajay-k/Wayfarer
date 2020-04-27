@@ -13,6 +13,9 @@
     animation: App-logo-spin infinite 20s linear;
   }
 }
+.modal-content {
+  background-image: url("/public/images/san-francisco.jpg")
+}
 
 .App-header {
   background-color: #282c34;
