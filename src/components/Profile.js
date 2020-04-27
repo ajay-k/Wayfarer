@@ -36,6 +36,7 @@ class Profile extends Component {
                 isLoaded: true,
                })
                console.log(this.state.posts)
+               
               // console.log(res)
               // console.log(res.data.data)
               // this.props.setCurrentUser(res.data.data)
@@ -116,7 +117,7 @@ class Profile extends Component {
                                   })} */}
                                   <ul>
                                      {/* <li>{this.state.posts[0].title}</li> */}
-                                     
+
                                      <Post title={this.state.posts[0].title} postId={this.state.postId}/>
                                  </ul>
                                         
