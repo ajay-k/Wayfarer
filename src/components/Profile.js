@@ -4,6 +4,10 @@ import ProfileModel from '../models/profile'
 import { Link, NavLink } from 'react-router-dom'
 import Button from 'react-bootstrap/Button';
 import Post from '../components/Post'
+import { Switch, Route } from 'react-router-dom';
+import ListGroup from 'react-bootstrap/ListGroup';
+
+
 
 
 
@@ -32,7 +36,7 @@ class Profile extends Component {
                 createdAt: res.data.createdAt,
                 city: res.data.city,
                 posts: res.data.posts,
-                postId: res.data.posts[0]._id,
+                postId: res.data.posts,
                 isLoaded: true,
                })
                console.log(this.state.posts)
@@ -86,7 +90,6 @@ class Profile extends Component {
                 
                 <div className="row">
                     <div className='userContainer col-md-4'>
-                    <button type="button" class="btn btn-info btn-sm" onClick={this.handleInfo}>Get Info</button>
                     <form onSubmit={this.handleSubmit}>
                        <div> 
                           <label>Username: {this.state.username}</label><br></br>
@@ -105,24 +108,20 @@ class Profile extends Component {
                     </form>
                     </div>
                     <div className='postContainer col-md-8'>
-                        <div>
+                        <div class="panel panel-default">
                            {
                                this.state.isLoaded ? 
-                               <div>
-                                  {/* {this.state.posts.map(function(name, index) {
-                                      return   <ul>
-                                               <li><NavLink to="/showPost" postId={statePostId}> {name.title} </NavLink></li>
-                                              </ul>
-                                  })} */}
-                                  <ul>
-                                     {/* <li>{this.state.posts[0].title}</li> */}
-                                     
-                                     <Post title={this.state.posts[0].title} postId={this.state.postId}/>
-                                 </ul>
-                                        
-                               </div>
+                               <ListGroup>
+                                  {this.state.posts.map(function(post, index) {
+                                      return <ListGroup.Item>
+                                                {/* <li><NavLink to="/showPost" postId={statePostId}> {name.title} </NavLink></li> */}
+                                                <Link to={{ pathname: `/showPost/${this.state.posts[index]._id}`, state: {fromNotifications: true}}} > {post.title} {index} </Link>
+                                            </ListGroup.Item>
+                                             
+                                  },this)}
+                               </ListGroup>
                                :
-                               <div>DEF</div>
+                               <div>No Posts</div>
                            }
         
                         </div>

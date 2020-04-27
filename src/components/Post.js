@@ -1,13 +1,17 @@
 import React, { Component } from 'react';
 import { Link, NavLink } from 'react-router-dom'
 import PostModel from '../models/post'
+import { Switch, Route } from 'react-router-dom';
+import { withRouter } from 'react-router-dom'
+
+
 
 class Post extends Component {
     
     state = {
-        title: this.props.title,
-        content: this.props.content,
-        image: this.props.image,
+        title: '',
+        content: '',
+        image: '',
         id: '',
        
   }
@@ -19,11 +23,14 @@ class Post extends Component {
           id: this.props.postId
       })
       console.log('poooooooooost', this.state.id)
-      PostModel.view(this.props.currentUser, this.props.postId)
+      PostModel.view(this.props.currentUser, this.props.match.params.id)
         .then((res) => {
             console.log('This is our POST FREAKING DATA')
             console.log(res)
             this.setState({
+                title: res.data.title,
+                image: res.data.image,
+                content: res.data.content,
                 id: this.props.postId
             })
             console.log('poooooooooost', this.state.id)
@@ -34,14 +41,17 @@ class Post extends Component {
 
 
     render() {
-        
+        // const isParamId = this.props.match.params.id;
         console.log('------------', this.state.id)
         return (
             <div>
-                <NavLink to="/showPost">{this.state.title}</NavLink>
+                <h3>Post: {this.props.match.params.id}</h3>
+                <h3>Title: {this.state.title}</h3>
+                <h3>Content: {this.state.content}</h3>
+                <h3>Image: {this.state.image}</h3>
             </div>
         );
     }
 }
 
-export default Post;
+export default withRouter(Post);
