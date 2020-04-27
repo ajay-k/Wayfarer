@@ -28,6 +28,7 @@ class Cities extends Component {
 
                 <div className="row">
                     <div className='citiesContainer col-md-4'>
+                        <h1>Cities</h1>
                         <div>
                             {
                                 this.state.isLoaded ?
@@ -40,9 +41,8 @@ class Cities extends Component {
                         </div>
                     </div>
 
-                    <div className='postContainer col-md-8'>
+                    <div className='cityDetailContainer; col-md-8'>
                         <Route path="/cities/:id" component={City} />
-                        
                     </div>
                 </div>
             </div>

@@ -8,12 +8,13 @@ class City extends Component {
         image: '',
         isLoaded: false,
         url: '',
+        posts: [],
 
     }
 
     componentDidMount() {
         console.log('I am in componentDIDMOUNT')
-       CityModel.cityShow(this.props.match.params.id)
+       CityModel.cityShow(this.props.currentUser, this.props.match.params.id)
         .then((res) => {
             console.log('Found the City')
             console.log(res)
@@ -22,7 +23,8 @@ class City extends Component {
                 description: res.data.description,
                 image: res.data.image,
                 isLoaded: true,
-                url: this.props.match.params.id
+                url: this.props.match.params.id,
+                posts: res.data.posts
 
             })
         })
@@ -42,7 +44,8 @@ class City extends Component {
                         description: res.data.description,
                         image: res.data.image,
                         isLoaded: true,
-                        url: this.props.match.params.id
+                        url: this.props.match.params.id,
+                        posts: res.data.posts
 
                     })
                 })
@@ -54,12 +57,33 @@ class City extends Component {
     render() {
         console.log('i am in RENDER')
         return (
-            <div>
-           
-                        <h3>{this.state.name}</h3>
-                        <h3>{this.state.description}</h3>
-                        <h3>{this.state.image}</h3>
-            
+            <div className="cityDetail">
+                
+                  <h3>{this.state.name}</h3>
+                  <h3>{this.state.description}</h3>
+                  <h3>{this.state.image}</h3>
+                
+                <div className="cityPostsContainer">
+                    <h1>Post</h1>
+                    <div className="cityPost">
+                      {
+                        
+                         this.state.isLoaded ?
+                        <div>
+                         {this.state.posts.map(function(post, index) {
+                             return   <h1>{post.content}</h1>
+                         }, this)}
+                         </div>
+                        
+                         :
+                         <div>No Posts</div>
+        
+    
+                     }
+                    </div>
+    
+                </div> 
+
             </div>
         );
     }
