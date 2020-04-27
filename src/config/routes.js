@@ -5,7 +5,7 @@ import RegisterModal from '../components/RegisterModal.js';
 import Home from '../components/Home'
 import Login from '../components/Login'
 import Profile from '../components/Profile'
-
+import Post from '../components/Post'
 
 export default (props) => (
 	<Switch>
@@ -18,6 +18,23 @@ export default (props) => (
 					setCurrentUser={props.setCurrentUser}
 					/> 
 		}}/>
-		<Route path="/profile" component={Profile}/>
+		<Route path="/profile" render={ (routeProps) => {
+		  return <Profile 
+					{ ...routeProps}
+					currentUser={props.currentUser}
+					setCurrentUser={props.setCurrentUser}
+					/> 
+		}}/>
+
+		<Route path="/showPost/:id" render={(routeProps) => {
+			return <Post {...props}
+				   { ...routeProps}
+				   currentUser={props.currentUser}
+					   />
+		}} />
+
+
+			
+
 	</Switch>
 )
