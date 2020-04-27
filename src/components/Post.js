@@ -45,7 +45,7 @@ class Post extends Component {
         console.log('------------', this.state.id)
         return (
             <div>
-                <h3>PostId: {this.props.match.params.id}</h3>
+                <h3>Post: {this.props.match.params.id}</h3>
                 <h3>Title: {this.state.title}</h3>
                 <h3>Content: {this.state.content}</h3>
                 <h3>Image: {this.state.image}</h3>

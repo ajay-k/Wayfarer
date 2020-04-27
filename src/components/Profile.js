@@ -5,6 +5,8 @@ import { Link, NavLink } from 'react-router-dom'
 import Button from 'react-bootstrap/Button';
 import Post from '../components/Post'
 import { Switch, Route } from 'react-router-dom';
+import ListGroup from 'react-bootstrap/ListGroup';
+
 
 
 
@@ -88,7 +90,6 @@ class Profile extends Component {
                 
                 <div className="row">
                     <div className='userContainer col-md-4'>
-                    <button type="button" class="btn btn-info btn-sm" onClick={this.handleInfo}>Get Info</button>
                     <form onSubmit={this.handleSubmit}>
                        <div> 
                           <label>Username: {this.state.username}</label><br></br>
@@ -107,18 +108,18 @@ class Profile extends Component {
                     </form>
                     </div>
                     <div className='postContainer col-md-8'>
-                        <div>
+                        <div class="panel panel-default">
                            {
                                this.state.isLoaded ? 
-                               <div>
+                               <ListGroup>
                                   {this.state.posts.map(function(post, index) {
-                                      return <div>
+                                      return <ListGroup.Item>
                                                 {/* <li><NavLink to="/showPost" postId={statePostId}> {name.title} </NavLink></li> */}
                                                 <Link to={{ pathname: `/showPost/${this.state.posts[index]._id}`, state: {fromNotifications: true}}} > {post.title} {index} </Link>
-                                              </div>
+                                            </ListGroup.Item>
                                              
                                   },this)}
-                               </div>
+                               </ListGroup>
                                :
                                <div>No Posts</div>
                            }
