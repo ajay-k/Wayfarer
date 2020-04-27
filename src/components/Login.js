@@ -7,7 +7,7 @@ import UserModel from '../models/user'
 class Login extends Component {
     
     state = {
-        email: '',
+        username: '',
         password: ''
     }
 
@@ -21,8 +21,10 @@ class Login extends Component {
         event.preventDefault()
         UserModel.login(this.state)
           .then((res) => {
+              console.log(res)
+              console.log(res.data.data)
               this.props.setCurrentUser(res.data.data)
-            //   this.props.history.push('/profile')
+              // this.props.history.push('/profile')
           })
           .catch((err) => console.log(err))
 
@@ -41,8 +43,8 @@ class Login extends Component {
                                 <h4 className="mb-3">Login</h4>
                                 <form onSubmit={this.handleSubmit}>
                                     <div className="form-group">
-                                        <label htmlFor="name">Email</label>
-                                        <input onChange={this.handleChange} className="form-control form-control-lg" type="email" id="email" name="email" value={this.state.email} />
+                                        <label htmlFor="name">Username</label>
+                                        <input onChange={this.handleChange} className="form-control form-control-lg" type="text" id="username" name="username" value={this.state.username} />
                                     </div>
                                     <div className="form-group">
                                         <label htmlFor="password">Password</label>

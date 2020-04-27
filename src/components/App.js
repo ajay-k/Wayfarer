@@ -4,12 +4,15 @@ import { withRouter } from 'react-router-dom'
 import Navbar from './Navbar.js';
 import RegisterModal from './RegisterModal.js';
 import UserModel from '../models/user';
+import ProfileModel from '../models/user';
+
 
 
 
 class App extends Component {
     state = {
-		currentUser: localStorage.getItem('uid')
+		currentUser: localStorage.getItem('uid'),
+		postId: ''
 	}
 
 	setCurrentUser = (userId) => {
@@ -30,6 +33,9 @@ class App extends Component {
 		UserModel.logout()
 		  .then(res => {
 			  console.log(res)
+			  console.log('----------------- Check')
+			  console.log(this.state.currentUser)
+
 			  this.setState({currentUser: null})
 			  this.props.history.push('/login')
 		  })
@@ -40,7 +46,8 @@ class App extends Component {
 	render() {
 		return (
 			<>
-				<Navbar currentUser={this.setCurrentUser} 
+				<Navbar currentUser={this.state.currentUser} 
+				setCurrentUser={this.setCurrentUser}
 				logout={this.logout}
 				/>
 				{/* TODO LOG OUT */}
