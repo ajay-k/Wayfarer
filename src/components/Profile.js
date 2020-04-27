@@ -106,7 +106,9 @@ class Profile extends Component {
                                this.state.isLoaded ? 
                                <div>
                                   {this.state.posts.map(function(name, index) {
-                                      return <NavLink to="/view/id/postId" > {name.title} </NavLink>
+                                      return   <ul>
+                                               <li><NavLink to="/showPost"> {name.title} </NavLink></li>
+                                              </ul>
                                   })}
                                </div>
                                :
