@@ -117,7 +117,7 @@ class Profile extends Component {
                                       return <ListGroup.Item>
                                                 {/* <li><NavLink to="/showPost" postId={statePostId}> {name.title} </NavLink></li> */}
                                                 <Link to={{ pathname: `/showPost/${this.state.posts[index]._id}`, state: {fromNotifications: true}}} > {post.title} {index} </Link>
-                                            </ListGroup.Item>
+                                            </ListGroup.Item> 
                                              
                                   },this)}
                                </ListGroup>
