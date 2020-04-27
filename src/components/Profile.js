@@ -4,6 +4,8 @@ import ProfileModel from '../models/profile'
 import { Link, NavLink } from 'react-router-dom'
 import Button from 'react-bootstrap/Button';
 import Post from '../components/Post'
+import { Switch, Route } from 'react-router-dom';
+
 
 
 
@@ -32,7 +34,7 @@ class Profile extends Component {
                 createdAt: res.data.createdAt,
                 city: res.data.city,
                 posts: res.data.posts,
-                postId: res.data.posts[0]._id,
+                postId: res.data.posts,
                 isLoaded: true,
                })
                console.log(this.state.posts)
@@ -109,20 +111,16 @@ class Profile extends Component {
                            {
                                this.state.isLoaded ? 
                                <div>
-                                  {/* {this.state.posts.map(function(name, index) {
-                                      return   <ul>
-                                               <li><NavLink to="/showPost" postId={statePostId}> {name.title} </NavLink></li>
-                                              </ul>
-                                  })} */}
-                                  <ul>
-                                     {/* <li>{this.state.posts[0].title}</li> */}
-                                     
-                                     <Post title={this.state.posts[0].title} postId={this.state.postId}/>
-                                 </ul>
-                                        
+                                  {this.state.posts.map(function(post, index) {
+                                      return <div>
+                                                {/* <li><NavLink to="/showPost" postId={statePostId}> {name.title} </NavLink></li> */}
+                                                <Link to={{ pathname: `/showPost/${this.state.posts[index]._id}`, state: {fromNotifications: true}}} > {post.title} {index} </Link>
+                                              </div>
+                                             
+                                  },this)}
                                </div>
                                :
-                               <div>DEF</div>
+                               <div>No Posts</div>
                            }
         
                         </div>
