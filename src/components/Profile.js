@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import '../App.css'
 import ProfileModel from '../models/profile'
+import { Link, NavLink } from 'react-router-dom'
 import Button from 'react-bootstrap/Button';
 
 
@@ -14,6 +15,7 @@ class Profile extends Component {
        city: '',
        createdAt: '',
        posts: [],
+       isLoaded: false,
    }
 
    componentDidMount() {
@@ -27,7 +29,8 @@ class Profile extends Component {
                 name: res.data.name,
                 createdAt: res.data.createdAt,
                 city: res.data.city,
-                posts: res.data.posts
+                posts: res.data.posts,
+                isLoaded: true,
                })
                console.log(this.state.posts)
               // console.log(res)
@@ -71,6 +74,7 @@ class Profile extends Component {
         const isName = this.state.name;
         const isCity = this.state.city;
         console.log(this.state.posts)
+        const {isLoaded} = this.state.isLoaded
 
         return (
         
@@ -98,10 +102,16 @@ class Profile extends Component {
                     </div>
                     <div className='postContainer col-md-8'>
                         <div>
-                            <p>Post Info</p>
-                            <p>Post1: {this.state.posts[0] ?
-                                this.state.posts[1].content: null}
-                                 </p>
+                           {
+                               this.state.isLoaded ? 
+                               <div>
+                                  {this.state.posts.map(function(name, index) {
+                                      return <NavLink to="/view/id/postId" > {name.title} </NavLink>
+                                  })}
+                               </div>
+                               :
+                               <div>DEF</div>
+                           }
         
                         </div>
                     </div>
