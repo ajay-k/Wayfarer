@@ -40,6 +40,7 @@ class Profile extends Component {
                 isLoaded: true,
                })
                console.log(this.state.posts)
+               
               // console.log(res)
               // console.log(res.data.data)
               // this.props.setCurrentUser(res.data.data)
