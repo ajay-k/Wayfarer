@@ -1,11 +1,26 @@
-import React from 'react';
 
-const Showpost = () => {
-    return (
-        <div>
-            
-        </div>
-    );
+import React, { Component } from 'react';
+
+class Post extends Component {
+    
+    
+
+    state = {
+        title: this.props.title,
+        content: this.props.content,
+        image: this.props.image,
+  }
+
+    render() {
+        return (
+            <div>
+               title: {this.state.title}
+               content: {this.state.content}
+               image: {this.state.image}
+               {this.props.postId}
+            </div>
+        );
+    }
 }
 
-export default Showpost;
+export default Post;
