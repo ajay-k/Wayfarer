@@ -112,21 +112,6 @@ class Profile extends Component {
                         <div class="panel panel-default">
                            {
                                this.state.isLoaded ? 
-<<<<<<< HEAD
-                               <div>
-                                  {/* {this.state.posts.map(function(name, index) {
-                                      return   <ul>
-                                               <li><NavLink to="/showPost" postId={statePostId}> {name.title} </NavLink></li>
-                                              </ul>
-                                  })} */}
-                                  <ul>
-                                     {/* <li>{this.state.posts[0].title}</li> */}
-
-                                     <Post title={this.state.posts[0].title} postId={this.state.postId}/>
-                                 </ul>
-                                        
-                               </div>
-=======
                                <ListGroup>
                                   {this.state.posts.map(function(post, index) {
                                       return <ListGroup.Item>
@@ -136,7 +121,6 @@ class Profile extends Component {
                                              
                                   },this)}
                                </ListGroup>
->>>>>>> 310faced71b5cfabf85ff42860047d84489bbe0a
                                :
                                <div>No Posts</div>
                            }
