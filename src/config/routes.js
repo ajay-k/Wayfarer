@@ -30,7 +30,6 @@ export default (props) => (
 			return <Post 
 				   { ...routerProps}
 				   currentUser={props.currentUser}
-				   postId={props.postId}    
 					   />
 		}} />
 			
