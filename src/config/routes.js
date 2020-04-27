@@ -6,6 +6,8 @@ import Home from '../components/Home'
 import Login from '../components/Login'
 import Profile from '../components/Profile'
 import Post from '../components/Post'
+import Cities from '../components/Cities'
+import City from '../components/City'
 
 export default (props) => (
 	<Switch>
@@ -32,6 +34,10 @@ export default (props) => (
 				   currentUser={props.currentUser}
 					   />
 		}} />
+
+		<Route path="/cities" component={Cities}/>
+
+		<Route path="/cities/:id" component={City}/>
 
 
 			
