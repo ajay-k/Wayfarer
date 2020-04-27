@@ -35,12 +35,14 @@ class Login extends Component {
     render() {
         return (
             <Modal show={this.props.appear}>
-                <Modal.Header>Login</Modal.Header>
+                <Modal.Header>
+                  <Button variant="danger" onClick={this.props.close}> X </Button>
+                </Modal.Header>
                 <Modal.Body>
                     <div className="container mt-4">
                         <div className="row">
-                            <div className="col-md-4 offset-md-4">
-                                <h4 className="mb-3">Login</h4>
+                            <div className="col-md-12 offset-md-0">
+                                <h4 className="text-center mb-3">Login</h4>
                                 <form onSubmit={this.handleSubmit}>
                                     <div className="form-group">
                                         <label htmlFor="name">Username</label>
@@ -56,10 +58,6 @@ class Login extends Component {
                         </div>
                     </div>
                 </Modal.Body>
-                <Modal.Footer>
-
-                    <Button variant="danger" onClick={this.props.close}>Close</Button>
-                </Modal.Footer>
 
             </Modal>
             
