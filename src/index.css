@@ -8,6 +8,22 @@
 
 }
 
+.bg {
+  background-image: url("https://mdbootstrap.com/img/Photos/Horizontal/Nature/full page/img(11).jpg");
+
+  /* Full height */
+  height: 50%; 
+
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.modal.body {
+	background-color: green;
+/*	background-image: url("/public/images/san-francisco.jpg")
+*/}
 
 body {
   margin: 0;
