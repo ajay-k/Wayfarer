@@ -109,12 +109,16 @@ class Profile extends Component {
                            {
                                this.state.isLoaded ? 
                                <div>
-                                  {this.state.posts.map(function(name, index) {
+                                  {/* {this.state.posts.map(function(name, index) {
                                       return   <ul>
                                                <li><NavLink to="/showPost" postId={statePostId}> {name.title} </NavLink></li>
                                               </ul>
-                                  })}
-                                
+                                  })} */}
+                                  <ul>
+                                     {/* <li>{this.state.posts[0].title}</li> */}
+                                     
+                                     <Post title={this.state.posts[0].title} postId={this.state.postId}/>
+                                 </ul>
                                         
                                </div>
                                :
