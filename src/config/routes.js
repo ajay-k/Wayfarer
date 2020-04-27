@@ -26,12 +26,14 @@ export default (props) => (
 					/> 
 		}}/>
 
-		<Route path="/showPost" render={(routerProps) => {
-			return <Post 
-				   { ...routerProps}
+		<Route path="/showPost/:id" render={(routeProps) => {
+			return <Post {...props}
+				   { ...routeProps}
 				   currentUser={props.currentUser}
 					   />
 		}} />
+
+
 			
 
 	</Switch>
