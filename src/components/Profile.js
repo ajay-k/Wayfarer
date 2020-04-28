@@ -89,9 +89,9 @@ class Profile extends Component {
         return (
         
             <div className='profileContainer col-md-12'>
-                
                 <div className="row">
                     <div className='userContainer col-md-4'>
+                      <h1>Profile</h1>
                     <form onSubmit={this.handleSubmit}>
                        <div> 
                           <label>Username: {this.state.username}</label><br></br>
@@ -110,6 +110,7 @@ class Profile extends Component {
                     </form>
                     </div>
                     <div className='postContainer col-md-8'>
+                    <h1>My Posts</h1>
                         <div class="panel panel-default">
                            {
                                this.state.isLoaded ? 
@@ -118,6 +119,7 @@ class Profile extends Component {
                                       return <ListGroup.Item>
                                                 {/* <li><NavLink to="/showPost" postId={statePostId}> {name.title} </NavLink></li> */}
                                                 <Link to={{ pathname: `/showPost/${this.state.posts[index]._id}`, state: {fromNotifications: true}}} > {post.title} </Link>
+                                                <p> {post.content}</p>
                                             </ListGroup.Item> 
                                              
                                   },this)}
