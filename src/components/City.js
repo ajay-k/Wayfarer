@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import CityModel from '../models/city'
+import { withRouter } from 'react-router-dom'
 
 class City extends Component {
     state = {
@@ -7,6 +8,7 @@ class City extends Component {
         description: '',
         image: '',
         isLoaded: false,
+        userId: localStorage.getItem('uid'),
         url: '',
         posts: [],
 
@@ -14,9 +16,10 @@ class City extends Component {
 
     componentDidMount() {
         console.log('I am in componentDIDMOUNT')
-       CityModel.cityShow(this.props.match.params.id)
+        CityModel.cityShow(this.props.match.params.id)
         .then((res) => {
             console.log('Found the City')
+            console.log(this.props.currentUser)
             console.log(res)
             this.setState({
                 name: res.data.name,
@@ -33,6 +36,7 @@ class City extends Component {
 
     componentDidUpdate(prevProps, prevState, snapshot) {
         console.log('I am in componentDIDUPDATE')
+        console.log(this.props.currentUser)
         // Typical usage (don't forget to compare props):
         if (this.props.match.params.id !== this.state.url) {
             CityModel.cityShow(this.props.match.params.id)
@@ -54,6 +58,11 @@ class City extends Component {
         
     }
 
+    handleClick = (event) => {
+        event.preventDefault()
+        alert("Added Post")
+    }
+
     render() {
         console.log('i am in RENDER')
         return (
@@ -64,14 +73,20 @@ class City extends Component {
                   <h3>{this.state.image}</h3>
                 
                 <div className="cityPostsContainer">
-                    <h1>Post</h1>
+                    <h1>Post <button type="button" class="btn btn-info" onClick={this.handleClick}>Add Post</button></h1>
+                    <h2>ID: {this.state.userId}</h2>
+
                     <div className="cityPost">
                       {
                         
                          this.state.isLoaded ?
                         <div>
                          {this.state.posts.map(function(post, index) {
-                             return   <h1>{post.content}</h1>
+                             return   <div>
+                                            <h1>{post.title}</h1>
+                                            <h2>{post.content}</h2>
+                                            <h2>{post.image}</h2>
+                                     </div>
                          }, this)}
                          </div>
                         
@@ -89,4 +104,4 @@ class City extends Component {
     }
 }
 
-export default City;
+export default withRouter(City);

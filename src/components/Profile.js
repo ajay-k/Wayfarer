@@ -27,7 +27,7 @@ class Profile extends Component {
    componentDidMount() {
     ProfileModel.view(this.props.currentUser)
           .then((res) => {
-              console.log("Got the id")
+            console.log("Got the id")
             //   console.log(res.data.posts[0]._id)
             console.log(res)
 
@@ -36,8 +36,8 @@ class Profile extends Component {
                 name: res.data.name,
                 createdAt: res.data.createdAt,
                 city: res.data.city,
-                // posts: res.data.posts,
-                // postId: res.data.posts,
+                posts: res.data.posts,
+                postId: res.data.posts,
                 isLoaded: true,
                })
                console.log(this.state.posts)
@@ -117,7 +117,7 @@ class Profile extends Component {
                                   {this.state.posts.map(function(post, index) {
                                       return <ListGroup.Item>
                                                 {/* <li><NavLink to="/showPost" postId={statePostId}> {name.title} </NavLink></li> */}
-                                                <Link to={{ pathname: `/showPost/${this.state.posts[index]._id}`, state: {fromNotifications: true}}} > {post.title} {index} </Link>
+                                                <Link to={{ pathname: `/showPost/${this.state.posts[index]._id}`, state: {fromNotifications: true}}} > {post.title} </Link>
                                             </ListGroup.Item> 
                                              
                                   },this)}

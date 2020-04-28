@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
-import { Link, NavLink } from 'react-router-dom'
 import RegisterModal from './RegisterModal.js'
 import Login from './Login'
+import {Link , NavLink, Route} from 'react-router-dom'
+import Cities from './Cities'
+
 
 
 
@@ -50,9 +52,10 @@ class Navbar extends Component {
               { this.props.currentUser ? 
                <>
                   <li className="nav-item">
-                    <NavLink className="nav-link" to="/cities">Cities</NavLink>
+                    {/* <Route path="/cities" component={Cities} currentUser={this.props.currentUser} >
+                    </Route> */}
+                    <NavLink className="nav-link" to="/cities" >Cities</NavLink>
                   </li>
-
                  <li className="nav-item">
                    <NavLink className="nav-link" to="/profile">Profile</NavLink>        
                 </li>
