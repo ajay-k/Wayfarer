@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import CityModel from '../models/city'
 import { withRouter } from 'react-router-dom'
+import PostModal from '../components/PostModal'
 
 class City extends Component {
     state = {
@@ -11,6 +12,7 @@ class City extends Component {
         userId: localStorage.getItem('uid'),
         url: '',
         posts: [],
+        modalOpen: false,
 
     }
 
@@ -60,7 +62,16 @@ class City extends Component {
 
     handleClick = (event) => {
         event.preventDefault()
-        alert("Added Post")
+        this.setState({
+            modalOpen: true,
+        })
+    }
+
+    handleClose = (event) => {
+        event.preventDefault()
+        this.setState({
+            modalOpen: false,
+        })
     }
 
     render() {
@@ -75,6 +86,7 @@ class City extends Component {
                 <div className="cityPostsContainer">
                     <h1>Post <button type="button" class="btn btn-info" onClick={this.handleClick}>Add Post</button></h1>
                     <h2>ID: {this.state.userId}</h2>
+                    <PostModal open={this.state.modalOpen} close={this.handleClose} userId={this.state.userId} cityId={this.props.match.params.id}/>
 
                     <div className="cityPost">
                       {

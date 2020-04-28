@@ -18,13 +18,13 @@ export default class CitiesModel {
 
     
     //Code for adding a post maybe?
-    // static cityShow(userId, cityId) {
-    //     console.log('CityShow')
-    //     console.log("User id:", userId)
-    //     console.log("City id is: ", cityId)
-    //     let request = axios.get(`${REACT_APP_API_URL}/cities/cityShow/${userId}/city/${cityId}`)
-    //     return request
-    // }
+    static cityPost(userId, cityId, data) {
+        console.log('CityShow')
+        console.log("User id:", userId)
+        console.log("City id is: ", cityId)
+        let request = axios.post(`${REACT_APP_API_URL}/cities/cityShow/${userId}/city/${cityId}`, data)
+        return request
+    }
 
     static cityShow(cityId) {
         console.log('CityShow')
