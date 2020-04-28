@@ -30,6 +30,8 @@ class RegisterModal extends Component {
 			   password2: ''
 		   })
 		   alert('Succesfully registered')
+		   this.props.history.push('/login')
+		   
 		
 	   })
 	   .catch(err => console.log(err))

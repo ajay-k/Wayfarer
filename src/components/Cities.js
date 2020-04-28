@@ -35,7 +35,7 @@ class Cities extends Component {
                                 this.state.isLoaded ?
                                     <div>{this.state.cities.map(function (city, index) {
                                         return  <div class="card-horizontal bg-light mb-3">
-                                            <img class = "img-city-square-wrapper" src="#" alt="cityImage"></img>
+                                            <img class = "img-city-square-wrapper" src={city.image} alt="cityImage"></img>
                                             <Link to={{pathname: `/cities/${this.state.cities[index]._id}`}} ><h2 class="text-dark card-text align-middle ml-3 pt-4">{city.name}</h2></Link>
                                             </div>
                                     }, this)}</div>
@@ -46,7 +46,7 @@ class Cities extends Component {
                     </div>
 
                     <div className='cityDetailContainer; col-md-8'>
-                        <Route path="/cities/:id" component={City} />
+                        <City {...this.props}/>
                     </div>
                 </div>
             </div>

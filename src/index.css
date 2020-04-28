@@ -171,9 +171,9 @@ code {
 
 }
 
-.card-horizontal:active{
+/* .card-horizontal:active{
 	background-color: red;
-}
+} */
 
 img {
 	max-width: 100%;
@@ -193,3 +193,34 @@ img {
   @include clearfix;
 }
 
+.postCardProfile {
+	display: flex;
+	justify-content: center;
+
+}
+
+.postCard {
+	display: flex;
+}
+
+.post-image-container{
+	display: flex;
+   justify-content: center;
+	margin-top: 15px;
+	
+	
+	
+}
+
+.profile-post-image {
+	/* display: flex;
+	flex-shrink: 2; */
+	/* height: 25%; */
+	/* position: relative;
+	height: 50%;
+	 */
+	 height: 600px;
+	 /* object-fit: cover; */
+
+	
+}

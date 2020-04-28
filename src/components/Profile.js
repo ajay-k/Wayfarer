@@ -125,9 +125,7 @@ class Profile extends Component {
                                                       <Link class = "title-link" to={{ pathname: `/showPost/${this.state.posts[index]._id}`, state: {fromNotifications: true}}} > {post.title} </Link>
                                                   </div> 
 
-                                                  <div class="card-body">
-                                                      <p> {post.content}</p>
-                                                  </div>
+                                                 
                                                 </div>
                                             </ListGroup.Item> 
                                              
