@@ -36,15 +36,21 @@ export default (props) => (
 		}} />
 
 		<Route path="/cities" component={Cities}/>
-
-		{/* <Route path="/cities/:id" component={City}/> */}
+		
+		{/* <Route path="/cities" render={(routeProps) => {
+			return <Cities {...props}
+				{...routeProps}
+				currentUser={props.currentUser}
+			/>
+		}} /> */}
+		<Route path="/cities/:id" component={City}/>
          
-		<Route path="/cities/:id" render={(routeProps) => {
+		{/* <Route path="/cities/:id" render={(routeProps) => {
 			return <City {...props}
 				{...routeProps}
 				currentUser={props.currentUser}
 			/>
-		}} />
+		}} /> */}
 
 			
 

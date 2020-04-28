@@ -14,7 +14,7 @@ class City extends Component {
 
     componentDidMount() {
         console.log('I am in componentDIDMOUNT')
-       CityModel.cityShow(this.props.currentUser, this.props.match.params.id)
+       CityModel.cityShow(this.props.match.params.id)
         .then((res) => {
             console.log('Found the City')
             console.log(res)
