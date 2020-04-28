@@ -11,10 +11,11 @@ class Cities extends Component {
         cityId: '',
     } 
    
+    //We have access to this.props.currentUser
     componentDidMount() {
        CitiesModel.view()
        .then((res) => {
-           console.log('Cities', res)
+           console.log('Cities in Mount', res)
            this.setState({
                cities: res.data,
                isLoaded: true,
