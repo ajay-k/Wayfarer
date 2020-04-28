@@ -8,6 +8,40 @@
 
 }
 
+.card-horizontal {
+    display: flex;
+    flex: 1 1 auto;
+}
+
+.card-horizontal-left {
+    display: flex;
+    flex: 1 1 auto;
+}
+
+.img-city-square-wrapper {
+	height: 90px;
+	width: 90px;
+}
+
+.img-square-wrapper {
+	height: 120px;
+	width: 120px;
+}
+
+.btn-circle.btn-md { 
+            width: 50px; 
+            height: 50px; 
+            padding: 0px 14px; 
+            border-radius: 25px; 
+            font-size: 30px; 
+            text-align: center; 
+        } 
+
+.city-pic {
+	width: 300px; 
+    height: auto;
+}
+
 .bg {
   background-image: url("https://mdbootstrap.com/img/Photos/Horizontal/Nature/full page/img(11).jpg");
 
@@ -25,8 +59,71 @@
 /*	background-image: url("/public/images/san-francisco.jpg")
 */}
 
+h1 {
+	font-family: 'Carter One', cursive;
+}
+
+h2 {
+	font-family: 'Carter One', cursive;
+}
+
+h3 {
+	font-family: 'Carter One', cursive;
+}
+
+a {
+	font-family: 'Carter One', cursive;
+	color: black;
+}
+
+p {
+	font-family: 'Carter One', cursive;
+}
+ 
+/*img {
+	border-color: black;
+	border-left-style: solid;
+  	border-left-color: coral; 
+  	border-left-width: thick;
+}*/
+.cityText {
+		display: inline-block;
+
+}
+
+.card-header .title-link {
+	color: #13632f;
+}
+
+/*the yellow container for the cities list*/
+.citiesContainer {
+	background-image: url("/images/desert.jpg");
+	/*background-color: yellow;*/
+}
+
+/*the yellow container for the profile info*/
+.userContainer {
+	background-image: url("/images/user-trees.jpg");
+	/*background-color: yellow;*/
+}
+
+.city-name {
+	display: inline-block;
+}
+
+.city-descript p{
+	display: inline-block;
+}
+
+.cityImage{
+	display: inline-block;
+}
+
+
+
 body {
   margin: 0;
+
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
@@ -69,7 +166,30 @@ code {
 	        justify-content: space-between;
 }
 
+.card-horizontal {
+	background-color: white;
+
+}
+
+.card-horizontal:active{
+	background-color: red;
+}
+
 img {
 	max-width: 100%;
+}
+
+/*// Mixin itself*/
+@mixin clearfix() {
+  &::after {
+    display: block;
+    content: "";
+    clear: both;
+  }
+}
+
+/*// Usage as a mixin*/
+.element {
+  @include clearfix;
 }
 

@@ -77,14 +77,22 @@ class City extends Component {
     render() {
         console.log('i am in RENDER')
         return (
-            <div className="cityDetail">
-                
-                  <h3>{this.state.name}</h3>
-                  <h3>{this.state.description}</h3>
-                  <h3>{this.state.image}</h3>
-                
-                <div className="cityPostsContainer">
-                    <h1>Post <button type="button" class="btn btn-info" onClick={this.handleClick}>Add Post</button></h1>
+            <div className="cityDetail mt-5">
+                <div className = "cityText">
+                  <h2 class = "city-name mb-2 mr-5">{this.state.name}</h2>
+                  <p class = "city-descript mt-2">{this.state.description}</p>
+               
+            </div>
+
+            <div className = "cityImage ml-5">
+                  <img class = "city-pic"src ={this.state.image}></img>
+            </div>
+             
+
+                <div className="cityPostsContainer mt-5">
+                    <h1 class= "mr-5">Post 
+                    <button type="button" class="btn btn-primary btn-circle btn-md ml-5" onClick={this.handleClick}>+</button>
+                    </h1>
                     <PostModal open={this.state.modalOpen} close={this.handleClose} userId={this.state.userId} cityId={this.props.match.params.id}/>
 
                     <div className="cityPost">
@@ -93,10 +101,11 @@ class City extends Component {
                          this.state.isLoaded ?
                         <div>
                          {this.state.posts.map(function(post, index) {
-                             return     <div class="card">
-                                            <div class="card-header">{post.title}</div>
+                             return     <div class="card-horizontal">
+                                            <img class = "img-square-wrapper" src={post.image} alt="postImage"></img>
+                                            <div class="card-header w-20">{post.title}</div>
                                             <div class="card-body">
-                                            <img src={post.image} alt="postImage"></img><p class="card-text">{post.content}</p>
+                                                <p class="card-text">{post.content}</p>
                                             </div>
                                         </div>
                          }, this)}

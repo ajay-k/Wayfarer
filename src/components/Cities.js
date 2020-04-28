@@ -28,13 +28,16 @@ class Cities extends Component {
             <div className='Container col-md-12'>
 
                 <div className="row">
-                    <div className='citiesContainer col-md-4'>
+                    <div className='citiesContainer col-md-4 mt-5'>
                         <h1>Cities</h1>
                         <div>
                             {
                                 this.state.isLoaded ?
                                     <div>{this.state.cities.map(function (city, index) {
-                                        return <Link to={{pathname: `/cities/${this.state.cities[index]._id}`}} > <h2>{city.name}</h2></Link>
+                                        return  <div class="card-horizontal bg-light mb-3">
+                                            <img class = "img-city-square-wrapper" src="#" alt="cityImage"></img>
+                                            <Link to={{pathname: `/cities/${this.state.cities[index]._id}`}} ><h2 class="text-dark card-text align-middle ml-3 pt-4">{city.name}</h2></Link>
+                                            </div>
                                     }, this)}</div>
                                     :
                                     <p>Not Loaded</p>

@@ -43,7 +43,7 @@ class PostModal extends Component {
                     <div className="container mt-4">
                         <div className="row">
                             <div className="col-md-12 offset-md-0">
-                                <h4 className="text-center mb-3">Add Post</h4>
+                                <h4 className="text-center mb-3">Create a New Post</h4>
                                 <form onSubmit={this.handleSubmit}>
                                     <div className="form-group">
                                         <label htmlFor="name">Title</label>

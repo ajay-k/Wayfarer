@@ -89,27 +89,30 @@ class Profile extends Component {
         return (
         
             <div className='profileContainer col-md-12'>
-                
                 <div className="row">
-                    <div className='userContainer col-md-4'>
+                    <div className='userContainer col-md-4 mt-5 bg-warning'>
+                      <h1>Profile</h1>
+                    <button type="button" class="btn btn-secondary btn-sm float-right" type="edit">Edit</button>
+
                     <form onSubmit={this.handleSubmit}>
                        <div> 
-                          <label>Username: {this.state.username}</label><br></br>
-                          <label>Name: {this.state.name}</label>
+                          <label class = "font-weight-bold">Username: {this.state.username}</label><br></br>
+                          <label  class = "font-weight-bold">Name: {this.state.name}</label>
                           <div><label>Update Name: </label><input type="text" class="form-control" id="name" name="name" onChange={this.handleChange}  aria-describedby="emailHelp" placeholder="Enter Name"/></div>
                           
                           <button type="button" class="btn btn-info btn-sm" type="submit" >Update Name</button>
                           <br></br>
-                          <label>Current City: {this.state.city}</label>
+                          <label  class = "font-weight-bold">Current City: {this.state.city}</label>
                            <div><label>Update City: </label><input type="text" class="form-control" id="city" name="city" onChange={this.handleChange} aria-describedby="emailHelp" placeholder="Enter City"/></div>
                     
                           <button type="button" class="btn btn-info btn-sm" type="submit" >Update City</button>
                           <br></br>
-                          <label>Join Date: {this.state.createdAt}</label>
+                          <label  class = "font-weight-bold">Join Date: {this.state.createdAt}</label>
                         </div>
                     </form>
                     </div>
-                    <div className='postContainer col-md-8'>
+                    <div className='postContainer mt-5 col-md-8'>
+                    <h1>My Posts</h1>
                         <div class="panel panel-default">
                            {
                                this.state.isLoaded ? 
@@ -117,7 +120,15 @@ class Profile extends Component {
                                   {this.state.posts.map(function(post, index) {
                                       return <ListGroup.Item>
                                                 {/* <li><NavLink to="/showPost" postId={statePostId}> {name.title} </NavLink></li> */}
-                                                <Link to={{ pathname: `/showPost/${this.state.posts[index]._id}`, state: {fromNotifications: true}}} > {post.title} </Link>
+                                                <div class="card">
+                                                  <div class="card-header">
+                                                      <Link class = "title-link" to={{ pathname: `/showPost/${this.state.posts[index]._id}`, state: {fromNotifications: true}}} > {post.title} </Link>
+                                                  </div> 
+
+                                                  <div class="card-body">
+                                                      <p> {post.content}</p>
+                                                  </div>
+                                                </div>
                                             </ListGroup.Item> 
                                              
                                   },this)}
