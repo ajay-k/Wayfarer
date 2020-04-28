@@ -44,12 +44,20 @@ class Post extends Component {
         // const isParamId = this.props.match.params.id;
         console.log('------------', this.state.id)
         return (
-            <div>
-                <h3>Post: {this.props.match.params.id}</h3>
-                <h3>Title: {this.state.title}</h3>
-                <h3>Content: {this.state.content}</h3>
-                <h3>Image: {this.state.image}</h3>
+            <>
+              <div className="post-image-container">
+                <img className="profile-post-image " src={this.state.image} alt="postImage"></img>
             </div>
+            <div className="postCardProfile mt-5">
+               
+                <div className="card">
+                    <div className="card-header w-20">{this.state.title}</div>
+                    <div className="card-body">
+                        <p className="card-text">{this.state.content}</p>
+                    </div>
+                </div>
+            </div>
+            </>
         );
     }
 }

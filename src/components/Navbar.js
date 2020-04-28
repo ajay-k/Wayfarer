@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
-import { Link, NavLink } from 'react-router-dom'
 import RegisterModal from './RegisterModal.js'
 import Login from './Login'
+import {Link , NavLink, Route} from 'react-router-dom'
+import Cities from './Cities'
+
 
 
 
@@ -49,13 +51,18 @@ class Navbar extends Component {
             <ul className="navbar-nav ml-auto">
               { this.props.currentUser ? 
                <>
-
+                  <li className="nav-item">
+                    {/* <Route path="/cities" component={Cities} currentUser={this.props.currentUser} >
+                    </Route> */}
+                    <NavLink className="nav-link" to="/cities/5ea7cccfbac86777706edef7" >Cities</NavLink>
+                  </li>
                  <li className="nav-item">
                    <NavLink className="nav-link" to="/profile">Profile</NavLink>        
                 </li>
                   <li className="nav-item">
                     <NavLink className="nav-link" to="/logout" onClick={this.props.logout}>Logout</NavLink>
                   </li>
+                  
                </>
               :
               <>
@@ -67,6 +74,7 @@ class Navbar extends Component {
                   <NavLink className="nav-link" to="/login" onClick={this.onOpenModal2}>Login</NavLink>
                   <Login appear={this.state.Modelopen2} close={this.onCloseModal2} setCurrentUser={this.props.setCurrentUser}/>
                 </li>
+                  
               </>
             }
             </ul>

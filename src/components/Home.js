@@ -5,32 +5,32 @@ import React from 'react';
 const Home = () => {
     return (
     	<>
-    	<div className="hero-image">
-		    <img src="./images/san-francisco.jpg"/>
-			</div>
+    	<div className="home bg ">
+		    <img className = "mg-3" src="./images/san-francisco.jpg" alt="San Francisco"/>
+		</div>
 
-			<section>
-				<h2>Wayfarer is...</h2>
+			<section class = "mt-3 mb-10">
+				<h2 class = "mb-3">Wayfarer is...</h2>
 
 			<div class="grid-wrapper articles">
 
 				<article class="col-third">
 					<div>
-						<h3>Topic 1</h3>
-						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vel voluptate eos nisi necessitatibus aperiam dolorem ut eveniet quae dolores quisquam nulla, cumque tenetur blanditiis modi tempora excepturi error veniam suscipit</p>
+						<h3 class= "text-center">Cities</h3>
+						<p>Explore our different city listings to check out our community's posts about their special travels.</p>
 					</div>
 				</article>
 
 				<article class="col-third">
 					<div>
-						<h3>Topic 2</h3>
-						<p>Maiores qui doloremque suscipit molestias. Saepe omnis dolore, ipsum voluptatem quisquam eveniet repellat! Eius in vero, cum dolorem ad earum, dignissimos quasi qui obcaecati, minima, esse aliquid beatae. </p>
+						<h3 class= "text-center">Tips and Tricks</h3>
+						<p>Become a part of the Wayfarer community and post your tips and tricks about the cities you've visted!</p>
 					</div>
 				</article>
 
 				<article class="col-third">
-					<h3>Topic 3</h3>
-					<p>Dolore asperiores, ad nam, molestiae, fugiat numquam ut dolorum est unde eum cupiditate! Totam optio ullam enim sed ipsum molestias quod fugiat, placeat, fugit nemo saepe quidem ex asperiores excepturi rerum! </p>
+					<h3 class= "text-center">Your Profile</h3>
+					<p>Register to create a profile and view all of your personal experiences and tips and tricks you've added to your favorite cities!</p>
 				</article>
 			</div>
 			</section>

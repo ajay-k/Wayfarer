@@ -13,6 +13,9 @@
     animation: App-logo-spin infinite 20s linear;
   }
 }
+.modal-content {
+  background-image: url("/public/images/san-francisco.jpg")
+}
 
 .App-header {
   background-color: #282c34;
@@ -21,6 +24,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  font-family: 'Carter One', cursive;
   font-size: calc(10px + 2vmin);
   color: white;
 }
@@ -39,10 +43,10 @@
 }
 
 
-.postContainer {
+/*.postContainer {
   border: 2px solid red;
 }
 
 .userContainer {
   border: 2px solid greenyellow;
-}
+}*/
