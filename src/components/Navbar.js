@@ -54,7 +54,7 @@ class Navbar extends Component {
                   <li className="nav-item">
                     {/* <Route path="/cities" component={Cities} currentUser={this.props.currentUser} >
                     </Route> */}
-                    <NavLink className="nav-link" to="/cities" >Cities</NavLink>
+                    <NavLink className="nav-link" to="/cities/5ea7cccfbac86777706edef7" >Cities</NavLink>
                   </li>
                  <li className="nav-item">
                    <NavLink className="nav-link" to="/profile">Profile</NavLink>        

@@ -77,21 +77,21 @@ class City extends Component {
     render() {
         console.log('i am in RENDER')
         return (
-            <div className="cityDetail mt-3">
+            <div className="cityDetail mt-5">
                 <div className = "cityText">
-                  <h2 class = "mb-0">{this.state.name}</h2>
-                  <p class = "mt-0">{this.state.description}</p>
+                  <h2 class = "city-name mb-2 mr-5">{this.state.name}</h2>
+                  <p class = "city-descript mt-2">{this.state.description}</p>
                
             </div>
 
-            <div className = "cityImage text-right">
-                  <img class = "city-pic "src ={this.state.image}></img>
+            <div className = "cityImage ml-5">
+                  <img class = "city-pic"src ={this.state.image}></img>
             </div>
              
 
-                <div className="cityPostsContainer">
-                    <h1>Post 
-                    <button type="button" class="btn btn-info btn-circle btn-md" onClick={this.handleClick}>+</button>
+                <div className="cityPostsContainer mt-5">
+                    <h1 class= "mr-5">Post 
+                    <button type="button" class="btn btn-primary btn-circle btn-md ml-5" onClick={this.handleClick}>+</button>
                     </h1>
                     <PostModal open={this.state.modalOpen} close={this.handleClose} userId={this.state.userId} cityId={this.props.match.params.id}/>
 
