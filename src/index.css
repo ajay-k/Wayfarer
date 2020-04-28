@@ -8,6 +8,30 @@
 
 }
 
+.card-horizontal {
+    display: flex;
+    flex: 1 1 auto;
+}
+
+.img-square-wrapper {
+	height: 120px;
+	width: 120px;
+}
+
+.btn-circle.btn-md { 
+            width: 50px; 
+            height: 50px; 
+            padding: 0px 14px; 
+            border-radius: 25px; 
+            font-size: 30px; 
+            text-align: center; 
+        } 
+
+.city-pic {
+	width: 300px; 
+    height: auto;
+}
+
 .bg {
   background-image: url("https://mdbootstrap.com/img/Photos/Horizontal/Nature/full page/img(11).jpg");
 

@@ -28,7 +28,7 @@ class Cities extends Component {
             <div className='Container col-md-12'>
 
                 <div className="row">
-                    <div className='citiesContainer col-md-4'>
+                    <div className='citiesContainer col-md-4 mt-3'>
                         <h1>Cities</h1>
                         <div>
                             {

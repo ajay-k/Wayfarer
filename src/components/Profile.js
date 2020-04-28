@@ -90,8 +90,10 @@ class Profile extends Component {
         
             <div className='profileContainer col-md-12'>
                 <div className="row">
-                    <div className='userContainer col-md-4'>
+                    <div className='userContainer col-md-4 mt-5 bg-warning'>
                       <h1>Profile</h1>
+                    <button type="button" class="btn btn-secondary btn-sm float-right" type="edit">Edit</button>
+
                     <form onSubmit={this.handleSubmit}>
                        <div> 
                           <label>Username: {this.state.username}</label><br></br>
@@ -109,7 +111,7 @@ class Profile extends Component {
                         </div>
                     </form>
                     </div>
-                    <div className='postContainer col-md-8'>
+                    <div className='postContainer mt-5 col-md-8'>
                     <h1>My Posts</h1>
                         <div class="panel panel-default">
                            {
@@ -118,8 +120,15 @@ class Profile extends Component {
                                   {this.state.posts.map(function(post, index) {
                                       return <ListGroup.Item>
                                                 {/* <li><NavLink to="/showPost" postId={statePostId}> {name.title} </NavLink></li> */}
-                                                <Link to={{ pathname: `/showPost/${this.state.posts[index]._id}`, state: {fromNotifications: true}}} > {post.title} </Link>
-                                                <p> {post.content}</p>
+                                                <div class="card">
+                                                  <div class="card-header">
+                                                      <Link to={{ pathname: `/showPost/${this.state.posts[index]._id}`, state: {fromNotifications: true}}} > {post.title} </Link>
+                                                  </div> 
+
+                                                  <div class="card-body">
+                                                      <p> {post.content}</p>
+                                                  </div>
+                                                </div>
                                             </ListGroup.Item> 
                                              
                                   },this)}
