@@ -37,7 +37,7 @@ export default (props) => (
 
 		{/* <Route path="/cities" component={Cities}/> */}
 
-		<Route path="/cities" render={ (routeProps) => {
+		<Route exact path="/cities" render={ (routeProps) => {
 		  return <Cities 
 					{ ...routeProps}
 					currentUser={props.currentUser}
@@ -53,8 +53,8 @@ export default (props) => (
 		}} /> */}
 		{/* <Route path="/cities/:id" component={City}/> */}
          
-		<Route path="cities/:id" render={(props) => {
-			return <City 
+		<Route path="/cities/:id" render={(props) => {
+			return <Cities 
 				{...props}
 				currentUser={props.currentUser}
 				setCurrentUser={props.setCurrentUser}

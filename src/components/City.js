@@ -90,7 +90,7 @@ class City extends Component {
              
 
                 <div className="cityPostsContainer mt-5">
-                    <h1 class= "mr-5">Post 
+                    <h1 class= "mr-5">Posts 
                     <button type="button" class="btn btn-primary btn-circle btn-md ml-5" onClick={this.handleClick}>+</button>
                     </h1>
                     <PostModal open={this.state.modalOpen} close={this.handleClose} userId={this.state.userId} cityId={this.props.match.params.id}/>
@@ -101,13 +101,16 @@ class City extends Component {
                          this.state.isLoaded ?
                         <div>
                          {this.state.posts.map(function(post, index) {
-                             return     <div class="card-horizontal">
-                                            <img class = "img-square-wrapper" src={post.image} alt="postImage"></img>
-                                            <div class="card-header w-20">{post.title}</div>
-                                            <div class="card-body">
-                                                <p class="card-text">{post.content}</p>
-                                            </div>
-                                        </div>
+                             return <div className="postCard mb-3">
+                                 <img class="img-square-wrapper" src={post.image} alt="postImage"></img>
+                                   <div class="card">
+                                     <div class="card-header w-20">{post.title}</div>
+                                     <div class="card-body">
+                                         <p class="card-text">{post.content}</p>
+                                     </div>
+                                 </div>
+                                 </div>
+                             
                          }, this)}
                          
                          </div>
@@ -126,4 +129,4 @@ class City extends Component {
     }
 }
 
-export default withRouter(City);
+export default City;

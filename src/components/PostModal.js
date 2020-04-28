@@ -20,6 +20,7 @@ class PostModal extends Component {
 
     handleSubmit = (event) => {
         event.preventDefault()
+        // this.props.close(event)
         CityModal.cityPost(this.props.userId, this.props.cityId, this.state)
         .then(res => {
             this.setState({
@@ -27,10 +28,13 @@ class PostModal extends Component {
                 content: '',
                 image: '',
             })
+            this.props.close(event)
+            
         })
         .catch((err) => console.log(err))
 
     }
+
   
 
     render() {
