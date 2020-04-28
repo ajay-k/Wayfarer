@@ -85,7 +85,6 @@ class City extends Component {
                 
                 <div className="cityPostsContainer">
                     <h1>Post <button type="button" class="btn btn-info" onClick={this.handleClick}>Add Post</button></h1>
-                    <h2>ID: {this.state.userId}</h2>
                     <PostModal open={this.state.modalOpen} close={this.handleClose} userId={this.state.userId} cityId={this.props.match.params.id}/>
 
                     <div className="cityPost">
@@ -94,12 +93,14 @@ class City extends Component {
                          this.state.isLoaded ?
                         <div>
                          {this.state.posts.map(function(post, index) {
-                             return   <div>
-                                            <h1>{post.title}</h1>
-                                            <h2>{post.content}</h2>
-                                            <h2>{post.image}</h2>
-                                     </div>
+                             return     <div class="card">
+                                            <div class="card-header">{post.title}</div>
+                                            <div class="card-body">
+                                            <img src={post.image} alt="postImage"></img><p class="card-text">{post.content}</p>
+                                            </div>
+                                        </div>
                          }, this)}
+                         
                          </div>
                         
                          :
