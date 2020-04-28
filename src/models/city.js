@@ -14,4 +14,11 @@ export default class CitiesModel {
         let request = axios.get(`${REACT_APP_API_URL}/cities/cityShow/${id}`)
         return request
     }
+
+    
+    // static cityShow(userId, cityId) {
+    //     console.log('CityShow')
+    //     let request = axios.get(`${REACT_APP_API_URL}/cities/cityShow/${userId}/city/${cityId}`)
+    //     return request
+    // }
 }

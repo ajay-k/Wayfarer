@@ -49,6 +49,9 @@ class Navbar extends Component {
             <ul className="navbar-nav ml-auto">
               { this.props.currentUser ? 
                <>
+                  <li className="nav-item">
+                    <NavLink className="nav-link" to="/cities">Cities</NavLink>
+                  </li>
 
                  <li className="nav-item">
                    <NavLink className="nav-link" to="/profile">Profile</NavLink>        
@@ -56,6 +59,7 @@ class Navbar extends Component {
                   <li className="nav-item">
                     <NavLink className="nav-link" to="/logout" onClick={this.props.logout}>Logout</NavLink>
                   </li>
+                  
                </>
               :
               <>
@@ -67,6 +71,7 @@ class Navbar extends Component {
                   <NavLink className="nav-link" to="/login" onClick={this.onOpenModal2}>Login</NavLink>
                   <Login appear={this.state.Modelopen2} close={this.onCloseModal2} setCurrentUser={this.props.setCurrentUser}/>
                 </li>
+                  
               </>
             }
             </ul>

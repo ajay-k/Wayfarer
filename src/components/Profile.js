@@ -28,15 +28,16 @@ class Profile extends Component {
     ProfileModel.view(this.props.currentUser)
           .then((res) => {
               console.log("Got the id")
-              console.log(res.data.posts[0]._id)
+            //   console.log(res.data.posts[0]._id)
+            console.log(res)
 
               this.setState({
                 username: res.data.username,
                 name: res.data.name,
                 createdAt: res.data.createdAt,
                 city: res.data.city,
-                posts: res.data.posts,
-                postId: res.data.posts,
+                // posts: res.data.posts,
+                // postId: res.data.posts,
                 isLoaded: true,
                })
                console.log(this.state.posts)
